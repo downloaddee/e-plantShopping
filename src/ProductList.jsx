@@ -37,6 +37,7 @@ function ProductList() {
                     cost: "$20"
                 },
                 {
+
                     name: "Rubber Plant",
                     image: "https://cdn.pixabay.com/photo/2020/02/15/11/49/flower-4850729_1280.jpg",
                     description: "Easy to care for and effective at removing toxins.",
@@ -289,7 +290,10 @@ const handleAddToCart = (product) => {
                             <div className="product-title">{plant.name}</div>
                             <div className="product-description">{plant.description}</div>
                             <div className="product-costs">{plant.cost}</div>
-                            <button  className="product-button" onClick={() => handleAddToCart(plant)}>Add to Cart</button>
+                            {addedToCart[plant.name] ? 
+                                <button className='product-button added-to-cart'>Added to Cart</button>
+                            :   <button className="product-button" onClick={() => handleAddToCart(plant)}>Add to Cart</button>
+                            }    
                         </div>
                         ))}
                     </div>
